@@ -11,9 +11,15 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
 
         val cardVehiculos = findViewById<LinearLayout>(R.id.cardVehiculos)
+        val cardServicios = findViewById<LinearLayout>(R.id.cardServicios)
 
         cardVehiculos.setOnClickListener {
             val intent = Intent(this, VehiculosActivity::class.java)
+            startActivity(intent)
+        }
+
+        cardServicios.setOnClickListener {
+            val intent = Intent(this, ServiciosActivity::class.java)
             startActivity(intent)
         }
     }

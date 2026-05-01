@@ -20,6 +20,8 @@ class AgregarVehiculoActivity : AppCompatActivity() {
         val txtModelo = findViewById<EditText>(R.id.txtModelo)
         val txtAnio = findViewById<EditText>(R.id.txtAnio)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
+        val btnRegresar = findViewById<Button>(R.id.btnRegresar)
+
 
         btnGuardar.setOnClickListener {
 
@@ -40,6 +42,11 @@ class AgregarVehiculoActivity : AppCompatActivity() {
             DataHolder.listaVehiculos.add(vehiculo)
 
             // REGRESAR
+            finish()
+        }
+
+        // BOTÓN REGRESAR
+        btnRegresar.setOnClickListener {
             finish()
         }
     }

@@ -29,7 +29,7 @@
             android:textColor="#94A3B8"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Tarjeta -->
+        <!-- Tarjeta Vehículos -->
         <LinearLayout
             android:id="@+id/cardVehiculos"
             android:layout_width="match_parent"
@@ -57,8 +57,9 @@
 
         </LinearLayout>
 
-        <!-- Otra tarjeta -->
+        <!-- Tarjeta Servicios -->
         <LinearLayout
+            android:id="@+id/cardServicios"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:background="#1E293B"
