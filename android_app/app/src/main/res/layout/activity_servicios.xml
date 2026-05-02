@@ -1,75 +1,43 @@
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#0F172A"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#0F172A">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <TextView
+        android:text="Servicios"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnAgendar"
+        android:text="Agendar cita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:backgroundTint="#E10600"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"/>
 
-        <TextView
-            android:text="Servicios"
-            android:textSize="26sp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"/>
+    <Button
+        android:id="@+id/btnVerServicios"
+        android:text="Ver tipos de servicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1E293B"
+        android:textColor="#FFFFFF"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#1E293B"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
+    <Button
+        android:id="@+id/btnRegresar"
+        android:text="Regresar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#E10600"
+        android:textColor="#FFFFFF"/>
 
-            <TextView
-                android:text="Cambio de aceite"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Servicio preventivo básico"
-                android:textColor="#94A3B8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#1E293B"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
-
-            <TextView
-                android:text="Modificaciones"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Suspensión, audio, performance"
-                android:textColor="#94A3B8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnRegresar"
-            android:text="Regresar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#E10600"
-            android:textColor="#FFFFFF"/>
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

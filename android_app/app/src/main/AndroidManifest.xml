@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".AgendarCitaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TiposServiciosActivity"
+            android:exported="false" />
+        <activity
             android:name=".AgregarVehiculoActivity"
             android:exported="false" />
         <activity
@@ -20,11 +26,9 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".ServiciosActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -33,7 +37,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

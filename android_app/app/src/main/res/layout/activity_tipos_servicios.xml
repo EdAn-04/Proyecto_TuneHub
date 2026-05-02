@@ -1,0 +1,377 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0F172A"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- TÍTULO -->
+        <TextView
+            android:text="Servicios TuneHub"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- ========================= -->
+        <!-- MANTENIMIENTO -->
+        <!-- ========================= -->
+
+        <!-- Cambio de aceite -->
+        <LinearLayout
+            android:id="@+id/cardAceite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambio de aceite"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mantenimiento básico para prolongar la vida del motor"
+                android:textColor="#94A3B8"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: Q250 - Q450"
+                android:textColor="#22C55E"/>
+        </LinearLayout>
+
+        <!-- Servicio menor -->
+        <LinearLayout
+            android:id="@+id/cardMenor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Servicio menor"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Revisión general, filtros y lubricación básica"
+                android:textColor="#94A3B8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: Q400 - Q800"
+                android:textColor="#22C55E"/>
+        </LinearLayout>
+
+        <!-- Servicio mayor -->
+        <LinearLayout
+            android:id="@+id/cardMayor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Servicio mayor"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mantenimiento completo del vehículo"
+                android:textColor="#94A3B8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: Q900 - Q2,000"
+                android:textColor="#22C55E"/>
+        </LinearLayout>
+
+        <!-- Frenos -->
+        <LinearLayout
+            android:id="@+id/cardFrenos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frenos"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambio de pastillas y revisión del sistema"
+                android:textColor="#94A3B8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: Q300 - Q900"
+                android:textColor="#22C55E"/>
+        </LinearLayout>
+
+        <!-- Alineación -->
+        <LinearLayout
+            android:id="@+id/cardAlineacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:text="Alineación y balanceo"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Mejora estabilidad y desgaste de llantas"
+                android:textColor="#94A3B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Precio: Q150 - Q300"
+                android:textColor="#22C55E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- ========================= -->
+        <!-- TUNING -->
+        <!-- ========================= -->
+
+        <!-- Stage 1 -->
+        <LinearLayout
+            android:id="@+id/cardStage1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:text="Stage 1 (ECU)"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Optimización electrónica sin modificar hardware"
+                android:textColor="#94A3B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Precio: Q1,500"
+                android:textColor="#22C55E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Stage 2 -->
+        <LinearLayout
+            android:id="@+id/cardStage2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:text="Stage 2"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Incluye mejoras en admisión y escape"
+                android:textColor="#94A3B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Precio: Q3,000"
+                android:textColor="#22C55E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Stage 3 -->
+        <LinearLayout
+            android:id="@+id/cardStage3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:text="Stage 3"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Modificaciones avanzadas (turbo, intercooler)"
+                android:textColor="#94A3B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Precio: Q6,000+"
+                android:textColor="#22C55E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Pintura -->
+        <LinearLayout
+            android:id="@+id/cardPintura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:text="Pintura"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Cambio de pintura para el vehículo"
+                android:textColor="#94A3B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Precio: Q3,000+"
+                android:textColor="#22C55E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Suspensión -->
+        <LinearLayout
+            android:id="@+id/cardPintura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:text="Pintura"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Cambio de pintura para el vehículo"
+                android:textColor="#94A3B8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Precio: Q3,000+"
+                android:textColor="#22C55E"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <!-- ========================= -->
+        <!-- BOTÓN -->
+        <!-- ========================= -->
+
+        <Button
+            android:id="@+id/btnRegresar"
+            android:text="Regresar"
+            android:backgroundTint="#E10600"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</ScrollView>
