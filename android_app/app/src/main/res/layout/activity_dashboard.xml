@@ -83,7 +83,11 @@
                 android:layout_marginTop="8dp"/>
 
         </LinearLayout>
-
+        <Button
+            android:id="@+id/btnMisCitas"
+            android:text="Ver mis citas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </ScrollView>

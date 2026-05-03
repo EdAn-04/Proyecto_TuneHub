@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.widget.Button
+import android.widget.LinearLayout
 
 class ServiciosActivity : AppCompatActivity() {
 
@@ -11,18 +12,16 @@ class ServiciosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_servicios)
 
-        val btnAgendar = findViewById<Button>(R.id.btnAgendar)
-        val btnVerServicios = findViewById<Button>(R.id.btnVerServicios)
+        val cardServicios = findViewById<LinearLayout>(R.id.cardServicios)
+        val cardTuning = findViewById<LinearLayout>(R.id.cardTuning)
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
 
-        btnAgendar.setOnClickListener {
-            val intent = Intent(this, AgendarCitaActivity::class.java)
-            startActivity(intent)
+        cardServicios.setOnClickListener {
+            startActivity(Intent(this, ServiciosBasicosActivity::class.java))
         }
 
-        btnVerServicios.setOnClickListener {
-            val intent = Intent(this, TiposServiciosActivity::class.java)
-            startActivity(intent)
+        cardTuning.setOnClickListener {
+            startActivity(Intent(this, TuningActivity::class.java))
         }
 
         btnRegresar.setOnClickListener {

@@ -11,33 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+
+        <!-- MIS CITAS -->
         <activity
-            android:name=".AgendarCitaActivity"
+            android:name=".MisCitasActivity"
             android:exported="false" />
-        <activity
-            android:name=".TiposServiciosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AgregarVehiculoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VehiculosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ServiciosActivity"
-            android:exported="false" />
+
+        <!-- LOGIN -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- DEMÁS ACTIVIDADES -->
+        <activity android:name=".DashboardActivity" android:exported="false" />
+        <activity android:name=".VehiculosActivity" android:exported="false" />
+        <activity android:name=".AgregarVehiculoActivity" android:exported="false" />
+        <activity android:name=".ServiciosActivity" android:exported="false" />
+        <activity android:name=".ServiciosBasicosActivity" android:exported="false" />
+        <activity android:name=".TuningActivity" android:exported="false" />
+        <activity android:name=".DetalleTuningActivity" android:exported="false" />
+        <activity android:name=".AgendarCitaActivity" android:exported="false" />
+
     </application>
 
 </manifest>

@@ -4,11 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.*
 import android.app.DatePickerDialog
+import android.content.Intent
 import java.util.*
-import android.widget.TextView
-import android.widget.Button
-
-
 
 class AgendarCitaActivity : AppCompatActivity() {
 
@@ -17,7 +14,7 @@ class AgendarCitaActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_agendar_cita)
 
-        // TODOS los campos
+        // CAMPOS
         val txtNombre = findViewById<EditText>(R.id.txtNombre)
         val txtServicio = findViewById<EditText>(R.id.txtServicio)
         val txtMarca = findViewById<EditText>(R.id.txtMarca)
@@ -30,11 +27,16 @@ class AgendarCitaActivity : AppCompatActivity() {
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
 
+        // RECIBIR SERVICIO
+        val servicioRecibido = intent.getStringExtra("servicio")
+        txtServicio.setText(servicioRecibido)
+        txtServicio.isEnabled = false
+
         btnRegresar.setOnClickListener {
             finish()
         }
 
-        // FECHA
+        // SELECCIONAR FECHA
         btnFecha.setOnClickListener {
 
             val calendario = Calendar.getInstance()
@@ -52,7 +54,7 @@ class AgendarCitaActivity : AppCompatActivity() {
             datePicker.show()
         }
 
-        // GUARDAR
+        // GUARDAR CITA
         btnGuardar.setOnClickListener {
 
             val nombre = txtNombre.text.toString().trim()
@@ -65,6 +67,7 @@ class AgendarCitaActivity : AppCompatActivity() {
 
             val regexPlaca = Regex("^[A-Z]{1}[0-9]{3}[A-Z]{3}$")
 
+            // VALIDACIONES
             if (
                 nombre.isEmpty() ||
                 servicio.isEmpty() ||
@@ -83,8 +86,22 @@ class AgendarCitaActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // GUARDAR CITA (SIN BD)
+            val prefs = getSharedPreferences("citas", MODE_PRIVATE)
+            val editor = prefs.edit()
+
+            editor.putString("servicio", servicio)
+            editor.putString("fecha", fecha)
+            editor.putString("nombre", nombre)
+
+            editor.apply()
+
             Toast.makeText(this, "Cita agendada correctamente", Toast.LENGTH_SHORT).show()
 
+            // REGRESAR AL DASHBOARD
+            val intent = Intent(this, DashboardActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
             finish()
         }
     }
