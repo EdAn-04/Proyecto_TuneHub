@@ -7,6 +7,7 @@
     android:padding="24dp"
     android:gravity="center">
 
+    <!-- TÍTULO -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +25,51 @@
         android:textColor="#94A3B8"
         android:layout_marginBottom="24dp"/>
 
+    <!-- EMAIL -->
     <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo electrónico"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#94A3B8"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:inputType="textEmailAddress"/>
+
+    <!-- PASSWORD -->
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#94A3B8"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="24dp"
+        android:inputType="textPassword"/>
+
+    <!-- LOGIN -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:backgroundTint="#E10600"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- REGISTRO -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Cuenta"
+        android:backgroundTint="#2563EB"
+        android:textColor="#FFFFFF"/>
+
+    <EditText
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Correo electrónico"
@@ -34,6 +79,7 @@
         android:layout_marginBottom="16dp"/>
 
     <EditText
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
@@ -41,13 +87,5 @@
         android:textColorHint="#94A3B8"
         android:backgroundTint="#FFFFFF"
         android:layout_marginBottom="24dp"/>
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
-        android:backgroundTint="#E10600"
-        android:textColor="#FFFFFF"/>
 
 </LinearLayout>
