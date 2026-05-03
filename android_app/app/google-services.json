@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31878242647",
+    "project_id": "tunehubapp123",
+    "storage_bucket": "tunehubapp123.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31878242647:android:6dbb75b89e11f11dde5e12",
+        "android_client_info": {
+          "package_name": "com.tunehub.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5GBI7YXTWLTq7GdFJcNL1wdgRVaZh5oI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
