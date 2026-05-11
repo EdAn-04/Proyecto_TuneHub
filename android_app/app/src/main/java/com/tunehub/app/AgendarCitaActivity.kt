@@ -1,17 +1,22 @@
 package com.tunehub.app
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.*
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class AgendarCitaActivity : AppCompatActivity() {
 
+    private lateinit var progressBar: ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_agendar_cita)
 
         // CAMPOS
@@ -27,18 +32,24 @@ class AgendarCitaActivity : AppCompatActivity() {
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
 
-        // RECIBIR SERVICIO
+        progressBar = findViewById(R.id.progressBar)
+
+        // FIREBASE
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        // SERVICIO
         val servicioRecibido = intent.getStringExtra("servicio")
-        txtServicio.setText(servicioRecibido)
+        txtServicio.setText(servicioRecibido ?: "")
         txtServicio.isEnabled = false
 
+        // REGRESAR
         btnRegresar.setOnClickListener {
             finish()
         }
 
-        // SELECCIONAR FECHA
+        // FECHA
         btnFecha.setOnClickListener {
-
             val calendario = Calendar.getInstance()
 
             val datePicker = DatePickerDialog(
@@ -63,11 +74,11 @@ class AgendarCitaActivity : AppCompatActivity() {
             val modelo = txtModelo.text.toString().trim()
             val anio = txtAnio.text.toString().trim()
             val placa = txtPlaca.text.toString().trim().uppercase()
-            val fecha = txtFecha.text.toString()
+            val fecha = txtFecha.text.toString().trim()
 
             val regexPlaca = Regex("^[A-Z]{1}[0-9]{3}[A-Z]{3}$")
 
-            // VALIDACIONES
+            // VALIDACIÓN
             if (
                 nombre.isEmpty() ||
                 servicio.isEmpty() ||
@@ -86,23 +97,61 @@ class AgendarCitaActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // GUARDAR CITA (SIN BD)
-            val prefs = getSharedPreferences("citas", MODE_PRIVATE)
-            val editor = prefs.edit()
+            val user = auth.currentUser
 
-            editor.putString("servicio", servicio)
-            editor.putString("fecha", fecha)
-            editor.putString("nombre", nombre)
+            if (user == null) {
+                Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
 
-            editor.apply()
+            // UI LOADING
+            progressBar.visibility = View.VISIBLE
+            btnGuardar.isEnabled = false
 
-            Toast.makeText(this, "Cita agendada correctamente", Toast.LENGTH_SHORT).show()
+            val cita = hashMapOf(
+                "nombre" to nombre,
+                "servicio" to servicio,
+                "marca" to marca,
+                "modelo" to modelo,
+                "anio" to anio,
+                "placa" to placa,
+                "fecha" to fecha,
+                "estado" to "pendiente"
+            )
 
-            // REGRESAR AL DASHBOARD
-            val intent = Intent(this, DashboardActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
-            finish()
+            db.collection("usuarios")
+                .document(user.uid)
+                .collection("citas")
+                .add(cita)
+                .addOnSuccessListener {
+
+                    progressBar.visibility = View.GONE
+                    btnGuardar.isEnabled = true
+
+                    val dialog = AlertDialog.Builder(this)
+                    dialog.setTitle("🎉 Cita agendada")
+                    dialog.setMessage("Tu cita fue registrada correctamente.")
+
+                    dialog.setPositiveButton("Aceptar") { d, _ ->
+
+                        val intent = Intent(this, DashboardActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+
+                        finish()
+                        d.dismiss()
+                    }
+
+                    dialog.setCancelable(false)
+                    dialog.show()
+                }
+                .addOnFailureListener { e ->
+
+                    progressBar.visibility = View.GONE
+                    btnGuardar.isEnabled = true
+
+                    Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
         }
     }
 }

@@ -1,48 +1,92 @@
 package com.tunehub.app
 
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import java.text.SimpleDateFormat
-import java.util.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MisCitasActivity : AppCompatActivity() {
+
+    private lateinit var recyclerCitas: RecyclerView
+    private lateinit var listaCitas: ArrayList<Cita>
+    private lateinit var adapter: CitaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mis_citas)
 
-        val txtCita = findViewById<TextView>(R.id.txtCita)
+        recyclerCitas = findViewById(R.id.recyclerCitas)
+        val btnRegresar = findViewById<Button>(R.id.btnRegresar)
 
-        val prefs = getSharedPreferences("citas", MODE_PRIVATE)
+        recyclerCitas.layoutManager = LinearLayoutManager(this)
+        recyclerCitas.setHasFixedSize(true)
 
-        val servicio = prefs.getString("servicio", null)
-        val fecha = prefs.getString("fecha", null)
+        listaCitas = ArrayList()
+        adapter = CitaAdapter(listaCitas)
 
-        if (servicio != null && fecha != null) {
+        recyclerCitas.adapter = adapter
 
-            if (!fechaPasada(fecha)) {
-                txtCita.text = "Servicio: $servicio\nFecha: $fecha"
-            } else {
-                prefs.edit().clear().apply()
-                txtCita.text = "No tienes citas activas"
-            }
+        btnRegresar.setOnClickListener {
+            finish()
+        }
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val db = FirebaseFirestore.getInstance()
+
+        if (user != null) {
+
+            db.collection("usuarios")
+                .document(user.uid)
+                .collection("citas")
+                .get()
+                .addOnSuccessListener { result ->
+
+                    listaCitas.clear()
+
+                    for (doc in result) {
+
+                        val cita = Cita(
+                            id = doc.id,
+                            servicio = doc.getString("servicio") ?: "N/A",
+                            fecha = doc.getString("fecha") ?: "N/A",
+                            estado = doc.getString("estado") ?: "N/A",
+                            placa = doc.getString("placa") ?: "N/A"
+                        )
+
+                        listaCitas.add(cita)
+                    }
+
+                    adapter.notifyDataSetChanged()
+
+                    if (listaCitas.isEmpty()) {
+                        Toast.makeText(
+                            this,
+                            "No tienes citas registradas",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                .addOnFailureListener {
+
+                    Toast.makeText(
+                        this,
+                        "Error al cargar las citas",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
 
         } else {
-            txtCita.text = "No tienes citas"
-        }
-    }
 
-    private fun fechaPasada(fecha: String): Boolean {
-        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-
-        return try {
-            val fechaCita = formato.parse(fecha)
-            val hoy = Date()
-
-            fechaCita != null && fechaCita.before(hoy)
-        } catch (e: Exception) {
-            false
+            Toast.makeText(
+                this,
+                "Usuario no autenticado",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
