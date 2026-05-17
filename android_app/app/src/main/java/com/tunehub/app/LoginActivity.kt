@@ -35,7 +35,13 @@ class LoginActivity : AppCompatActivity() {
             val password = txtPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(
+                    this,
+                    "Completa todos los campos",
+                    Toast.LENGTH_SHORT
+                ).show()
+
                 return@setOnClickListener
             }
 
@@ -43,11 +49,24 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
 
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
 
-                        startActivity(Intent(this, DashboardActivity::class.java))
+                        Toast.makeText(
+                            this,
+                            "Bienvenido",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        startActivity(
+                            Intent(
+                                this,
+                                DashboardActivity::class.java
+                            )
+                        )
+
                         finish()
+
                     } else {
+
                         Toast.makeText(
                             this,
                             "Error: ${task.exception?.message}",
@@ -64,12 +83,24 @@ class LoginActivity : AppCompatActivity() {
             val password = txtPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(
+                    this,
+                    "Completa todos los campos",
+                    Toast.LENGTH_SHORT
+                ).show()
+
                 return@setOnClickListener
             }
 
             if (password.length < 6) {
-                Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(
+                    this,
+                    "La contraseña debe tener al menos 6 caracteres",
+                    Toast.LENGTH_SHORT
+                ).show()
+
                 return@setOnClickListener
             }
 
@@ -81,23 +112,35 @@ class LoginActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         val uid = user?.uid
 
-                        // 🔥 GUARDAR EN FIRESTORE
                         val userMap = hashMapOf(
                             "email" to email,
                             "rol" to "cliente"
                         )
 
                         if (uid != null) {
+
                             db.collection("usuarios")
                                 .document(uid)
                                 .set(userMap)
                         }
 
-                        Toast.makeText(this, "Cuenta creada", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "Cuenta creada",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-                        startActivity(Intent(this, DashboardActivity::class.java))
+                        startActivity(
+                            Intent(
+                                this,
+                                DashboardActivity::class.java
+                            )
+                        )
+
                         finish()
+
                     } else {
+
                         Toast.makeText(
                             this,
                             "Error: ${task.exception?.message}",
@@ -113,8 +156,16 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
 
         val user = auth.currentUser
+
         if (user != null) {
-            startActivity(Intent(this, DashboardActivity::class.java))
+
+            startActivity(
+                Intent(
+                    this,
+                    DashboardActivity::class.java
+                )
+            )
+
             finish()
         }
     }

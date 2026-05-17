@@ -27,7 +27,7 @@ class AsistenteIAActivity : AppCompatActivity() {
     private lateinit var btnEnviar: Button
 
     // 🔥 TU API KEY
-    private val apiKey = " "
+    private val apiKey = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
