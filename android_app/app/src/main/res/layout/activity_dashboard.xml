@@ -88,6 +88,15 @@
             android:text="Ver mis citas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnIA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Asistente IA 🚗"
+            android:backgroundTint="#7C3AED"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="12dp"/>
     </LinearLayout>
 
 </ScrollView>
