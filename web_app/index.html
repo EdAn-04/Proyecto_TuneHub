@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuneHub Taller</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>TuneHub Taller 🚗</h1>
+
+        <!-- LOGIN -->
+        <div class="login-box">
+
+            <input type="email" id="txtEmail" placeholder="Correo" autocomplete="off">
+
+            <input type="password" id="txtPassword" placeholder="Contraseña" autocomplete="off">
+
+            <button id="btnLogin" type="button">Iniciar Sesión</button>
+
+        </div>
+
+        <!-- PANEL MECÁNICOS -->
+        <div id="panel" style="display:none;">
+
+            <div class="top-bar">
+
+                <h2>Citas del Taller</h2>
+
+                <button id="btnLogout" type="button">Cerrar Sesión</button>
+
+            </div>
+
+            <div id="listaCitas"></div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,23 +9,24 @@
     android:padding="24dp"
     android:gravity="center">
 
-    <!-- TÍTULO -->
+    <!-- TITULO -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TuneHub"
-        android:textSize="28sp"
-        android:textColor="#FFFFFF"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp"/>
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- SUBTITULO -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bienvenido"
         android:textSize="18sp"
         android:textColor="#94A3B8"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="32dp"/>
 
     <!-- EMAIL -->
     <EditText
@@ -34,8 +37,9 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#94A3B8"
         android:backgroundTint="#FFFFFF"
-        android:layout_marginBottom="16dp"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"/>
 
     <!-- PASSWORD -->
     <EditText
@@ -46,46 +50,31 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#94A3B8"
         android:backgroundTint="#FFFFFF"
-        android:layout_marginBottom="24dp"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginBottom="28dp"/>
 
-    <!-- LOGIN -->
+    <!-- BOTON LOGIN -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Iniciar Sesión"
-        android:backgroundTint="#E10600"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="12dp"/>
+        android:textStyle="bold"
+        android:backgroundTint="#DC2626"
+        android:padding="14dp"
+        android:layout_marginBottom="14dp"/>
 
-    <!-- REGISTRO -->
+    <!-- BOTON REGISTRO -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crear Cuenta"
-        android:backgroundTint="#2563EB"
-        android:textColor="#FFFFFF"/>
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
         android:textColor="#FFFFFF"
-        android:textColorHint="#94A3B8"
-        android:backgroundTint="#FFFFFF"
-        android:layout_marginBottom="16dp"/>
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#94A3B8"
-        android:backgroundTint="#FFFFFF"
-        android:layout_marginBottom="24dp"/>
+        android:textStyle="bold"
+        android:backgroundTint="#4F46E5"
+        android:padding="14dp"/>
 
 </LinearLayout>
